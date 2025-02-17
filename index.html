@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joseph Nishimwe - Resume Website</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-
-    <!-- Background Image -->
-    <div class="background"></div>
+    <!-- Background Overlay -->
+    <div class="background-overlay"></div>
 
     <!-- Header Section -->
     <header>
@@ -17,66 +17,63 @@
         <p>Software Developer | Web Designer | Problem Solver</p>
     </header>
 
-    <!-- Navigation Menu (Hidden by Default) -->
+    <!-- Menu Button -->
+    <button id="menu-btn" aria-label="Toggle Menu">☰</button>
+
+    <!-- Navigation Menu -->
     <nav id="menu" class="hidden">
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#comments">Comments</a></li>
-            <li><a href="#contact">Submit Request</a></li>
+            <li><a href="#" data-target="home">Home</a></li>
+            <li><a href="#" data-target="about">About</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn" aria-expanded="false">Projects ▼</a>
+                <ul class="dropdown-content">
+                    <li><a href="#" data-target="alu-higher-level-programming">ALU Higher Level Programming</a></li>
+                    <li><a href="#" data-target="alu-shell">ALU Shell</a></li>
+                    <li><a href="#" data-target="farca-website">FARCA Website</a></li>
+                    <li><a href="#" data-target="alu-web-development">ALU Web Development</a></li>
+                    <li><a href="#" data-target="hospital-monitoring">Hospital Monitoring System</a></li>
+                    <li><a href="#" data-target="alu-zero-day">ALU Zero Day</a></li>
+                    <li><a href="#" data-target="loops-conditions-parsing">Loops & Conditions Parsing</a></li>
+                    <li><a href="#" data-target="submission-reminder-app">Submission Reminder App</a></li>
+                    <li><a href="#" data-target="alu-regex-data-extraction">Regex Data Extraction</a></li>
+                    <li><a href="#" data-target="alu-scripting">ALU Scripting</a></li>
+                    <li><a href="#" data-target="alu-back-end">ALU Back-End</a></li>
+                    <li><a href="#" data-target="city-west-website">City West Website</a></li>
+                    <li><a href="#" data-target="etikets">eTikets</a></li>
+                </ul>
+            </li>
+            <li><a href="#" data-target="comments">Comments</a></li>
+            <li><a href="#" data-target="contact">Submit Request</a></li>
         </ul>
     </nav>
 
-    <!-- Menu Button (Appears at the Bottom) -->
-    <button id="menu-btn">☰</button>
-
-    <!-- Home Section -->
-    <section id="home">
+    <!-- Dynamic Content Sections -->
+    <section id="home" class="content-section active">
         <h2>Welcome to My Portfolio</h2>
-        <p>This website showcases my academic projects and software development skills.</p>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
         <img src="images/passport.jpg" alt="Joseph Nishimwe" class="profile-pic">
-        <p>
-            Hello! I am Joseph Nishimwe, a passionate software developer with experience in web development, 
-            backend programming, and problem-solving. I specialize in HTML, CSS, JavaScript, and Python.
-        </p>
+        <p>Hello! I am Joseph Nishimwe, a passionate software developer with experience in web development, backend programming, and problem-solving. I specialize in HTML, CSS, JavaScript, and Python. I am currently a student at the African Leadership University (ALU) pursuing a degree in Software Engineering.</p>
+        <img src="images/alu-campus.jpg" alt="African Leadership University Campus" class="alu-campus">
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul id="project-list">
-            <li><a href="projects/alu-higher_level_programming.html">ALU Higher Level Programming</a></li>
-            <li><a href="projects/alu-shell.html">ALU Shell</a></li>
-            <li><a href="projects/FARCA-WEBSITE.html">FARCA Website</a></li>
-            <li><a href="projects/alu-web-development.html">ALU Web Development</a></li>
-            <li><a href="projects/hospital_monitoring_group-9.html">Hospital Monitoring System</a></li>
-            <li><a href="projects/alu-zero_day.html">ALU Zero Day</a></li>
-            <li><a href="projects/loops_conditions_and_parsing.html">Loops & Conditions Parsing</a></li>
-            <li><a href="projects/submission_reminder_app_josep-prog.html">Submission Reminder App</a></li>
-            <li><a href="projects/alu_regex-data-extraction-josep-prog.html">Regex Data Extraction</a></li>
-            <li><a href="projects/alu-scripting.html">ALU Scripting</a></li>
-            <li><a href="projects/alu-back-end.html">ALU Back-End</a></li>
-            <li><a href="projects/City-West_website.html">City West Website</a></li>
-            <li><a href="projects/eTikets.html">eTikets</a></li>
+    <section id="about" class="content-section">
+        <h2>About Me</h2>
+        <p>I am a dedicated software engineering student at ALU, passionate about building innovative solutions to real-world problems. My skills include:</p>
+        <ul>
+            <li>Web Development (HTML, CSS, JavaScript)</li>
+            <li>Backend Programming (Python, Node.js)</li>
+            <li>Problem Solving and Algorithm Design</li>
         </ul>
     </section>
 
-    <!-- Comments Section -->
-    <section id="comments">
+    <section id="comments" class="content-section">
         <h2>Comments</h2>
         <textarea id="comment-box" placeholder="Leave a comment..."></textarea>
         <button id="submit-comment">Submit</button>
         <div id="comment-list"></div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="content-section">
         <h2>Submit Your Request</h2>
         <form id="contact-form">
             <input type="text" id="name" placeholder="Your Name" required>
@@ -85,7 +82,5 @@
             <button type="submit">Send</button>
         </form>
     </section>
-
-    <script src="script.js"></script>
 </body>
 </html>
