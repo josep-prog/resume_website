@@ -1,65 +1,106 @@
-// Wait for the DOM to fully load before running script
 document.addEventListener("DOMContentLoaded", function () {
-    
     // Toggle Menu Visibility
     const menuBtn = document.getElementById("menu-btn");
-    const navMenu = document.getElementById("nav-menu");
+    const navMenu = document.getElementById("menu");
 
-    menuBtn.addEventListener("click", function () {
-        navMenu.classList.toggle("show"); // Toggle 'show' class
-    });
+    if (menuBtn && navMenu) {
+        menuBtn.addEventListener("click", function () {
+            console.log("Menu button clicked!"); // Debugging
+            navMenu.classList.toggle("show"); // Toggle 'show' class to show/hide menu
+        });
+    }
 
     // List of Projects with GitHub Links
     const projects = [
-        { name: "alu-higher_level_programming", link: "https://github.com/yourusername/alu-higher_level_programming" },
-        { name: "alu-shell", link: "https://github.com/yourusername/alu-shell" },
-        { name: "FARCA-WEBSITE.py", link: "https://github.com/yourusername/FARCA-WEBSITE" },
-        { name: "alu-web-development", link: "https://github.com/yourusername/alu-web-development" },
-        { name: "hospital_monitoring_group-9", link: "https://github.com/yourusername/hospital_monitoring_group-9" },
-        { name: "alu-zero_day", link: "https://github.com/yourusername/alu-zero_day" },
-        { name: "loops_conditions_and_parsing", link: "https://github.com/yourusername/loops_conditions_and_parsing" },
-        { name: "submission_reminder_app_josep-prog", link: "https://github.com/yourusername/submission_reminder_app" },
-        { name: "alu-regex-data-extraction-josep-prog", link: "https://github.com/yourusername/alu-regex-data-extraction" },
-        { name: "alu-scripting", link: "https://github.com/yourusername/alu-scripting" },
-        { name: "alu-back-end", link: "https://github.com/yourusername/alu-back-end" },
-        { name: "City-West_website.py", link: "https://github.com/yourusername/City-West_website" },
-        { name: "eTikets", link: "https://github.com/yourusername/eTikets" }
+        { name: "ALU Higher Level Programming", link: "https://github.com/josep-prog/alu-higher_level_programming.git" },
+        { name: "ALU Shell", link: "https://github.com/josep-prog/alu-shell.git" },
+        { name: "FARCA Website", link: "https://github.com/josep-prog/FARCA-WEBSITE.py.git" },
+        { name: "ALU Web Development", link: "https://github.com/josep-prog/alu-web-development.git" },
+        { name: "Hospital Monitoring System", link: "https://github.com/josep-prog/hospital_monitoring_group-9.git" },
+        { name: "ALU Zero Day", link: "https://github.com/josep-prog/alu-zero_day.git" },
+        { name: "Loops & Conditions Parsing", link: "https://github.com/josep-prog/loops_conditions_and_parsing.git" },
+        { name: "Submission Reminder App", link: "https://github.com/josep-prog/submission_reminder_app_josep-prog.git" },
+        { name: "Regex Data Extraction", link: "https://github.com/josep-prog/alu_regex-data-extraction-josep-prog.git" },
+        { name: "ALU Scripting", link: "https://github.com/josep-prog/alu-scripting.git" },
+        { name: "ALU Back-End", link: "https://github.com/josep-prog/alu-back-end.git" },
+        { name: "City West Website", link: "https://github.com/josep-prog/City-West_website.py.git" },
+        { name: "eTikets", link: "https://github.com/josep-prog/eTikets.git" }
     ];
 
-    // Populate the Project List Dynamically
+    // Populate the Project List Dynamically (Prevent Duplicate Entries)
     const projectList = document.getElementById("project-list");
-    projects.forEach(project => {
-        let li = document.createElement("li");
-        let a = document.createElement("a");
-        a.href = project.link;
-        a.textContent = project.name;
-        a.target = "_blank"; // Open in new tab
-        li.appendChild(a);
-        projectList.appendChild(li);
-    });
+    if (projectList && projectList.children.length === 0) {
+        projects.forEach(project => {
+            const listItem = document.createElement("li");
+            const projectLink = document.createElement("a");
 
-    // Handle Comment Submission
+            projectLink.href = project.link;
+            projectLink.textContent = project.name;
+            projectLink.target = "_blank"; // Open in new tab
+
+            listItem.appendChild(projectLink);
+            projectList.appendChild(listItem);
+        });
+    }
+
+    // Handle Comment Submission with Basic Validation
     const commentBox = document.getElementById("comment-box");
     const submitComment = document.getElementById("submit-comment");
-    const commentSection = document.getElementById("comments");
+    const commentSection = document.getElementById("comment-list");
 
-    submitComment.addEventListener("click", function () {
-        let commentText = commentBox.value.trim();
-        if (commentText !== "") {
-            let p = document.createElement("p");
-            p.textContent = commentText;
-            commentSection.appendChild(p);
-            commentBox.value = ""; // Clear input after submission
-        }
-    });
+    if (submitComment && commentBox && commentSection) {
+        submitComment.addEventListener("click", function () {
+            const commentText = commentBox.value.trim();
 
-    // Handle Contact Form Submission
+            if (commentText !== "") {
+                const commentParagraph = document.createElement("p");
+                commentParagraph.textContent = commentText;
+                commentSection.appendChild(commentParagraph);
+                commentBox.value = ""; // Clear input after submission
+            } else {
+                alert("Please enter a comment before submitting."); // Validation message
+            }
+        });
+    }
+
+    // Handle Contact Form Submission with Confirmation
     const contactForm = document.getElementById("contact-form");
-    
-    contactForm.addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent page refresh
-        alert("Your request has been submitted!");
-        contactForm.reset(); // Clear the form
-    });
+    if (contactForm) {
+        contactForm.addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent page refresh
 
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            if (name && email && message) {
+                alert("Your request has been submitted successfully!");
+                contactForm.reset(); // Clear the form
+            } else {
+                alert("Please fill out all fields before submitting."); // Validation message
+            }
+        });
+    }
+
+    // Toggle Content Sections Based on Navigation Links
+    document.querySelectorAll('nav a').forEach(item => {
+        item.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const target = this.getAttribute("data-target");
+            const targetSection = document.getElementById(target);
+
+            if (targetSection) {
+                // Hide all sections
+                document.querySelectorAll(".content-section").forEach(section => {
+                    section.classList.remove("active");
+                });
+
+                // Show the target section
+                targetSection.classList.add("active");
+            } else {
+                console.error("Target section not found:", target); // Debugging
+            }
+        });
+    });
 });
