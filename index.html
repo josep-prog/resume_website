@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joseph Nishimwe - Resume Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Image -->
+    <div class="background"></div>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Joseph Nishimwe</h1>
+        <p>Software Developer | Web Designer | Problem Solver</p>
+    </header>
+
+    <!-- Navigation Menu (Hidden by Default) -->
+    <nav id="menu" class="hidden">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#comments">Comments</a></li>
+            <li><a href="#contact">Submit Request</a></li>
+        </ul>
+    </nav>
+
+    <!-- Menu Button (Appears at the Bottom) -->
+    <button id="menu-btn">☰</button>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h2>Welcome to My Portfolio</h2>
+        <p>This website showcases my academic projects and software development skills.</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <img src="images/passport.jpg" alt="Joseph Nishimwe" class="profile-pic">
+        <p>
+            Hello! I am Joseph Nishimwe, a passionate software developer with experience in web development, 
+            backend programming, and problem-solving. I specialize in HTML, CSS, JavaScript, and Python.
+        </p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul id="project-list">
+            <li><a href="projects/alu-higher_level_programming.html">ALU Higher Level Programming</a></li>
+            <li><a href="projects/alu-shell.html">ALU Shell</a></li>
+            <li><a href="projects/FARCA-WEBSITE.html">FARCA Website</a></li>
+            <li><a href="projects/alu-web-development.html">ALU Web Development</a></li>
+            <li><a href="projects/hospital_monitoring_group-9.html">Hospital Monitoring System</a></li>
+            <li><a href="projects/alu-zero_day.html">ALU Zero Day</a></li>
+            <li><a href="projects/loops_conditions_and_parsing.html">Loops & Conditions Parsing</a></li>
+            <li><a href="projects/submission_reminder_app_josep-prog.html">Submission Reminder App</a></li>
+            <li><a href="projects/alu_regex-data-extraction-josep-prog.html">Regex Data Extraction</a></li>
+            <li><a href="projects/alu-scripting.html">ALU Scripting</a></li>
+            <li><a href="projects/alu-back-end.html">ALU Back-End</a></li>
+            <li><a href="projects/City-West_website.html">City West Website</a></li>
+            <li><a href="projects/eTikets.html">eTikets</a></li>
+        </ul>
+    </section>
+
+    <!-- Comments Section -->
+    <section id="comments">
+        <h2>Comments</h2>
+        <textarea id="comment-box" placeholder="Leave a comment..."></textarea>
+        <button id="submit-comment">Submit</button>
+        <div id="comment-list"></div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Submit Your Request</h2>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
