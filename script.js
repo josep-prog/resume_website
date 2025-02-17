@@ -4,9 +4,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const navMenu = document.getElementById("menu");
 
     if (menuBtn && navMenu) {
-        menuBtn.addEventListener("click", function () {
+        // Toggle menu when clicking the menu button
+        menuBtn.addEventListener("click", function (e) {
+            e.stopPropagation(); // Prevent the click from bubbling up to the document
             console.log("Menu button clicked!"); // Debugging
-            navMenu.classList.toggle("show"); // Toggle 'show' class to show/hide menu
+            navMenu.classList.toggle("hidden");
+            navMenu.classList.toggle("show");
+        });
+
+        // Close menu when clicking outside of it
+        document.addEventListener("click", function (e) {
+            if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                navMenu.classList.add("hidden");
+                navMenu.classList.remove("show");
+            }
         });
     }
 
@@ -103,4 +114,22 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+    // Handle Dropdown Menu for Projects
+    const dropdownBtn = document.querySelector(".dropbtn");
+    const dropdownContent = document.querySelector(".dropdown-content");
+
+    if (dropdownBtn && dropdownContent) {
+        dropdownBtn.addEventListener("click", function (e) {
+            e.preventDefault(); // Prevent default link behavior
+            dropdownContent.classList.toggle("show");
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener("click", function (e) {
+            if (!dropdownBtn.contains(e.target) && !dropdownContent.contains(e.target)) {
+                dropdownContent.classList.remove("show");
+            }
+        });
+    }
 });
