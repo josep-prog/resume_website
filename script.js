@@ -59,6 +59,11 @@ if (projectList && projectList.children.length === 0) {
         projectList.appendChild(listItem);
 
         console.log(`Project link created: ${project.name} -> ${project.link}`); // Debugging
+        // Enable scrolling inside the project list if it overflows
+        
+        projectList.style.maxHeight = "300px"; // Adjust height as needed
+        projectList.style.overflowY = "auto";
+
     });
 }
 
