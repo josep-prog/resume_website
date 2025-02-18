@@ -21,38 +21,46 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // List of Projects with GitHub Links
+    // List of Projects with Links to Local HTML Files
     const projects = [
-        { name: "ALU Higher Level Programming", link: "https://github.com/josep-prog/alu-higher_level_programming.git" },
-        { name: "ALU Shell", link: "https://github.com/josep-prog/alu-shell.git" },
-        { name: "FARCA Website", link: "https://github.com/josep-prog/FARCA-WEBSITE.py.git" },
-        { name: "ALU Web Development", link: "https://github.com/josep-prog/alu-web-development.git" },
-        { name: "Hospital Monitoring System", link: "https://github.com/josep-prog/hospital_monitoring_group-9.git" },
-        { name: "ALU Zero Day", link: "https://github.com/josep-prog/alu-zero_day.git" },
-        { name: "Loops & Conditions Parsing", link: "https://github.com/josep-prog/loops_conditions_and_parsing.git" },
-        { name: "Submission Reminder App", link: "https://github.com/josep-prog/submission_reminder_app_josep-prog.git" },
-        { name: "Regex Data Extraction", link: "https://github.com/josep-prog/alu_regex-data-extraction-josep-prog.git" },
-        { name: "ALU Scripting", link: "https://github.com/josep-prog/alu-scripting.git" },
-        { name: "ALU Back-End", link: "https://github.com/josep-prog/alu-back-end.git" },
-        { name: "City West Website", link: "https://github.com/josep-prog/City-West_website.py.git" },
-        { name: "eTikets", link: "https://github.com/josep-prog/eTikets.git" }
+        { name: "ALU Higher Level Programming", link: "../resume_website/projects/alu-higher_level_programming.html" },
+        { name: "ALU Shell", link: "../resume_website/projects/alu-shell.html" },
+        { name: "FARCA Website", link: "../resume_website/projects/FARCA-WEBSITE.html" },
+        { name: "ALU Web Development", link: "../resume_website/projects/alu-web-development.html" },
+        { name: "Hospital Monitoring System", link: "../resume_website/projects/hospital_monitoring_group-9.html" },
+        { name: "ALU Zero Day", link: "../resume_website/projects/alu-zero_day.html" },
+        { name: "Loops & Conditions Parsing", link: "../resume_website/projects/loops_conditions_and_parsing.html" },
+        { name: "Submission Reminder App", link: "../resume_website/projects/submission_reminder_app_josep-prog.html" },
+        { name: "Regex Data Extraction", link: "../resume_website/projects/alu_regex-data-extraction-josep-prog.html" },
+        { name: "ALU Scripting", link: "../resume_website/projects/alu-scripting.html" },
+        { name: "ALU Back-End", link: "../resume_website/projects/alu-back-end.html" },
+        { name: "City West Website", link: "../resume_website/projects/City-West_website.html" },
+        { name: "eTikets", link: "../resume_website/projects/eTiketshtml" }
     ];
 
-    // Populate the Project List Dynamically (Prevent Duplicate Entries)
-    const projectList = document.getElementById("project-list");
-    if (projectList && projectList.children.length === 0) {
-        projects.forEach(project => {
-            const listItem = document.createElement("li");
-            const projectLink = document.createElement("a");
+    // Populate the Project List Dynamically
+const projectList = document.getElementById("project-list");
+if (projectList && projectList.children.length === 0) {
+    projects.forEach(project => {
+        const listItem = document.createElement("li");
+        const projectLink = document.createElement("a");
 
-            projectLink.href = project.link;
-            projectLink.textContent = project.name;
-            projectLink.target = "_blank"; // Open in new tab
+        projectLink.href = project.link;
+        projectLink.textContent = project.name;
+        projectLink.target = "_blank"; // Open in new tab
 
-            listItem.appendChild(projectLink);
-            projectList.appendChild(listItem);
+        // Add event listener to handle clicks
+        projectLink.addEventListener("click", function (e) {
+            e.preventDefault(); // Prevent default link behavior
+            window.location.href = project.link; // Navigate to the project page
         });
-    }
+
+        listItem.appendChild(projectLink);
+        projectList.appendChild(listItem);
+
+        console.log(`Project link created: ${project.name} -> ${project.link}`); // Debugging
+    });
+}
 
     // Handle Comment Submission with Basic Validation
     const commentBox = document.getElementById("comment-box");
