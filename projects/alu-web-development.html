@@ -4,43 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALU Web Development</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+    <!-- Background Overlay -->
+    <div class="background-overlay"></div>
 
+    <!-- Header Section -->
     <header>
         <h1>ALU Web Development</h1>
+        <p>Building Interactive and Engaging Websites</p>
     </header>
 
+    <!-- Menu Button -->
+    <button id="menu-btn" aria-label="Toggle Navigation Menu">☰</button>
+
+    <!-- Navigation Menu -->
+    <nav id="menu" class="hidden">
+        <ul>
+            <li><a href="../index.html">🏠 Home</a></li>
+            <li><a href="../index.html#about">📖 About</a></li>
+            <li><a href="../index.html#comments">💬 Comments</a></li>
+            <li><a href="../index.html#contact">📩 Submit Request</a></li>
+        </ul>
+    </nav>
+
+    <!-- Project Description -->
     <section class="project-description">
         <h2>Project Overview</h2>
         <p>
-            The GitHub repository alu-web-development is focused on web development. 
-            This project covers the basics of creating websites and web applications. 
-            It involves learning how to use languages like HTML, CSS, JavaScript, and other tools 
-            that help developers build interactive and visually appealing websites.
+            The <strong>ALU Web Development</strong> project focuses on mastering web development skills. 
+            It covers essential technologies such as <em>HTML, CSS, and JavaScript</em>, along with modern frameworks 
+            that help developers create dynamic and visually appealing websites.
         </p>
     </section>
 
+    <!-- Project Links -->
     <section class="project-links">
         <h2>GitHub Repository</h2>
         <p>
-            You can access the project on GitHub:  
-            <a href="https://github.com/josep-prog/alu-web-development.git" target="_blank">
-                ALU Web Development Repository
+            Explore the project on GitHub:  
+            <a href="https://github.com/josep-prog/alu-web-development.git" target="_blank" rel="noopener noreferrer">
+                ALU Web Development Repository 🔗
             </a>
         </p>
     </section>
 
+    <!-- Project PDF Slides -->
     <section class="project-pdf">
         <h2>Project Slides</h2>
-        <p>Below is the PDF slide for this project:</p>
-        <iframe src="pdf_slides/alu-web-development.pdf" width="100%" height="500px"></iframe>
+        <p>View the project documentation below:</p>
+
+        <!-- Embed PDF directly -->
+        <embed src="../../resume_website/project-pdf/alu-web-development.pdf" 
+               type="application/pdf" 
+               width="100%" 
+               height="600px">
     </section>
 
+    <!-- Footer -->
     <footer>
-        <a href="index.html">⬅ Back to Home</a>
+        <p>&copy; 2025 ALU Web Development Project. All Rights Reserved.</p>
+        <a href="../index.html">⬅ Back to Home</a>
     </footer>
 
+    <!-- JavaScript for Menu Toggle -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuBtn = document.getElementById("menu-btn");
+            const navMenu = document.getElementById("menu");
+
+            // Ensure the menu button and nav menu exist before adding event listeners
+            if (menuBtn && navMenu) {
+                menuBtn.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    navMenu.classList.toggle("hidden");
+                    navMenu.classList.toggle("show");
+                });
+
+                document.addEventListener("click", function (e) {
+                    // Close the menu if clicking outside the menu or button
+                    if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                        navMenu.classList.add("hidden");
+                        navMenu.classList.remove("show");
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
