@@ -4,48 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FARCA Website</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+    <!-- Background Overlay -->
+    <div class="background-overlay"></div>
 
+    <!-- Header Section -->
     <header>
         <h1>FARCA Website</h1>
+        <p>Your Platform for Information and Services</p>
     </header>
 
+    <!-- Menu Button -->
+    <button id="menu-btn" aria-label="Toggle Navigation Menu">☰</button>
+
+    <!-- Navigation Menu -->
+    <nav id="menu" class="hidden">
+        <ul>
+            <li><a href="../index.html">🏠 Home</a></li>
+            <li><a href="../index.html#about">📖 About</a></li>
+            <li><a href="../index.html#comments">💬 Comments</a></li>
+            <li><a href="../index.html#contact">📩 Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Project Description -->
     <section class="project-description">
         <h2>Project Overview</h2>
         <p>
-            The GitHub repository FARCA-WEBSITE is a project for building a website using Python. 
-            The website is likely designed to provide information, services, or an online platform for users. 
-            It helps in creating interactive, user-friendly web applications that people can access easily from 
-            their phones or computers.
+            The <strong>FARCA Website</strong> project is focused on creating a website using Python, aimed at providing information, services, or an online platform for users. 
+            This interactive website is designed to be accessible via mobile devices and computers, offering a seamless experience for visitors. 
+            The project emphasizes user-friendly web applications that deliver valuable services and functionality.
         </p>
     </section>
 
+    <!-- Project Links -->
     <section class="project-links">
         <h2>GitHub Repository</h2>
         <p>
             You can explore the project on GitHub:  
-            <a href="https://github.com/josep-prog/FARCA-WEBSITE.py.git" target="_blank">
+            <a href="https://github.com/josep-prog/FARCA-WEBSITE.py.git" target="_blank" rel="noopener noreferrer">
                 FARCA Website Repository
             </a>
         </p>
     </section>
 
+    <!-- Project PDF Slides -->
     <section class="project-pdf">
         <h2>Project Slides</h2>
         <p>Below is the PDF slide for this project:</p>
-        
-        <!-- Directly embed the PDF file from the local path -->
-        <embed src="file:///home/joe/Documents/resume_website/project-pdf/FARCA-WEBSITE.pdf" 
+        <embed src="../../resume_website/project-pdf/FARCA-WEBSITE.pdf" 
                type="application/pdf" 
                width="100%" 
                height="600px">
     </section>
 
+    <!-- Footer -->
     <footer>
-        <a href="index.html">⬅ Back to Home</a>
+        <p>&copy; 2025 FARCA Website Project. All Rights Reserved.</p>
+        <a href="../index.html">⬅ Back to Home</a>
     </footer>
 
+    <!-- JavaScript for Menu Toggle -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuBtn = document.getElementById("menu-btn");
+            const navMenu = document.getElementById("menu");
+
+            if (menuBtn && navMenu) {
+                menuBtn.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    navMenu.classList.toggle("hidden");
+                    navMenu.classList.toggle("show");
+                });
+
+                document.addEventListener("click", function (e) {
+                    if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                        navMenu.classList.add("hidden");
+                        navMenu.classList.remove("show");
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
