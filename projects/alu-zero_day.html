@@ -4,24 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALU Zero Day</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+    <!-- Background Overlay -->
+    <div class="background-overlay"></div>
 
+    <!-- Header Section -->
     <header>
         <h1>ALU Zero Day</h1>
+        <p>Enhancing Computer Security Skills</p>
     </header>
 
+    <!-- Menu Button -->
+    <button id="menu-btn" aria-label="Toggle Navigation Menu">☰</button>
+
+    <!-- Navigation Menu -->
+    <nav id="menu" class="hidden">
+        <ul>
+            <li><a href="../index.html">🏠 Home</a></li>
+            <li><a href="../index.html#about">📖 About</a></li>
+            <li><a href="../index.html#comments">💬 Comments</a></li>
+            <li><a href="../index.html#contact">📩 Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Project Description -->
     <section class="project-description">
         <h2>Project Overview</h2>
         <p>
-            The GitHub repository alu-zero_day focuses on teaching basic computer security concepts. 
+            The <strong>ALU Zero Day</strong> project focuses on teaching basic computer security concepts. 
             It likely deals with the concept of zero-day vulnerabilities, which are flaws in software 
             that are not known by the developers and can be exploited by attackers. 
             This project is important for understanding how to protect computer systems and networks from potential threats.
         </p>
     </section>
 
+    <!-- Project Links -->
     <section class="project-links">
         <h2>GitHub Repository</h2>
         <p>
@@ -32,15 +51,39 @@
         </p>
     </section>
 
+    <!-- Project PDF Slides -->
     <section class="project-pdf">
         <h2>Project Slides</h2>
         <p>Below is the PDF slide for this project:</p>
-        <iframe src="pdf_slides/alu-zero_day.pdf" width="100%" height="500px"></iframe>
+        <iframe src="../../resume_website/project-pdf/alu-zero_day.pdf" width="100%" height="500px"></iframe>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <a href="index.html">⬅ Back to Home</a>
+        <a href="../index.html">⬅ Back to Home</a>
     </footer>
 
+    <!-- JavaScript for Menu Toggle -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuBtn = document.getElementById("menu-btn");
+            const navMenu = document.getElementById("menu");
+
+            if (menuBtn && navMenu) {
+                menuBtn.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    navMenu.classList.toggle("hidden");
+                    navMenu.classList.toggle("show");
+                });
+
+                document.addEventListener("click", function (e) {
+                    if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                        navMenu.classList.add("hidden");
+                        navMenu.classList.remove("show");
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
