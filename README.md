@@ -1,5 +1,7 @@
 My Resume Website
 
+github live link : https://josep-prog.github.io/resume_website/
+
 This is my personal resume website. It shows my projects, has an about me section, a comment section, and a contact form.
 
 What’s Inside?
